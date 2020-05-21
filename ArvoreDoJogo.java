@@ -1,12 +1,12 @@
 
-public class ArvoreDoJogo<E> {
+public class ArvoreDoJogo {
 //atributos
 	private Mensagem nodeAtual; //node com a mensagem principal
-	private ArvoreDoJogo<E> esquerda; //node com a mensagem a percorrer para a esquerda
-	private ArvoreDoJogo<E> direita; //node com a mensagem a percorrer para a direita
+	private ArvoreDoJogo esquerda; //node com a mensagem a percorrer para a esquerda
+	private ArvoreDoJogo direita; //node com a mensagem a percorrer para a direita
 	
 //Construtores
-	 public ArvoreDoJogo(Mensagem m, ArvoreDoJogo<E> esquerda, ArvoreDoJogo<E> direita){
+	 public ArvoreDoJogo(Mensagem m, ArvoreDoJogo esquerda, ArvoreDoJogo direita){
         this.nodeAtual = m;  
         this.esquerda = esquerda;
         this.direita = direita;
@@ -20,7 +20,7 @@ public class ArvoreDoJogo<E> {
 		this.nodeAtual.setMensagem(m);
 	}
 	
-	public ArvoreDoJogo<E> getEsquerda(){
+	public ArvoreDoJogo getEsquerda(){
 		return this.esquerda;
 	}
 	
@@ -28,7 +28,7 @@ public class ArvoreDoJogo<E> {
 		this.esquerda.setNodeAtual(m);
 	}
 	
-	public ArvoreDoJogo<E> getDireita(){
+	public ArvoreDoJogo getDireita(){
 		return this.direita;
 	}
 	
