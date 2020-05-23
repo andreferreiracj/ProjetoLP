@@ -21,11 +21,17 @@ public class Main {
 		 ArvoreDoJogo node5= null;
 		 ArvoreDoJogo node6= null;
 		 ArvoreDoJogo node7= null;
+		 ArvoreDoJogo node8= null;
+		 ArvoreDoJogo node9= null;
+		 ArvoreDoJogo node10= null;
+		 ArvoreDoJogo node11= null;
+		 ArvoreDoJogo node12= null;
+		 
 		 
 		 //Perguntas a fazer
 		 final String pergunta1 = "O seu habitat é a agua?"; //Golfinho ou baleia ou polvo.
 	     final String pergunta2 = " O animal necessita de vir á superficie às vezes?"; // é o golfinho
-	     final String pergunta3 = " O animal já ingoliu o pinócio?"; // É a baleia.
+	     final String pergunta3 = " O animal já engoliu o pinóquio?"; // É a baleia.
 	     final String pergunta4 = "Tem tentaculos?"; // É o Polvo
 	     
 	     final String pergunta5 = "Quatro patas certo?"; //cao ou arminho
@@ -45,7 +51,6 @@ public class Main {
 	     //Animais a adivinhar
 	      final String ANIMAL1 = "zebra"; 
 	      final String ANIMAL2 = "galinha";
-	      final String ANIMAL3 = "pato";
 	      final String ANIMAL4 = "cao";
 	      final String ANIMAL5 = "arminho";
 	      final String ANIMAL6 = "rato"; 
@@ -67,7 +72,24 @@ public class Main {
 	      	node2 = new ArvoreDoJogo(new Mensagem(ANIMAL7),null,null);  //TODO O PERCURSO PARA A ESQUERDA DO INICIO.
 	      	
 	      	
-	      	
+	      	//Começar para a direita do inicio.
+	      		node4 = new ArvoreDoJogo(new Mensagem(pergunta5), null, null);
+	      		inicio.setNodeDireita(node4);
+	      		node4.setNodeEsquerda(node5);
+	      		node5 = new ArvoreDoJogo(new Mensagem(pergunta6),new ArvoreDoJogo(new Mensagem(ANIMAL4),null,null), null);
+	      		node6 = new ArvoreDoJogo(new Mensagem(pergunta7),new ArvoreDoJogo(new Mensagem(ANIMAL5),null,null),null);
+	      		node5.setNodeDireita(node6);
+	      		node7 = new ArvoreDoJogo(new Mensagem(pergunta11),null,null);
+	      		node6.setNodeDireita(node7);
+	      		node8 = new ArvoreDoJogo(new Mensagem(pergunta12),new ArvoreDoJogo(new Mensagem(ANIMAL1),null,null),null);
+	      		node9= new ArvoreDoJogo(new Mensagem(pergunta13),new ArvoreDoJogo(new Mensagem(ANIMAL8),null,null),null);
+	      		node8.setNodeDireita(node9);
+	      		
+	      		node9 = new ArvoreDoJogo(new Mensagem(pergunta8),null,null);
+	      		node4.setNodeDireita(node9);
+	      		node9 = new ArvoreDoJogo(new Mensagem(pergunta9),new ArvoreDoJogo(new Mensagem(ANIMAL2),null,null),null);
+	      		node10 = new ArvoreDoJogo(new Mensagem(pergunta10),new ArvoreDoJogo(new Mensagem(ANIMAL6),null,null),null);
+	      		node9.setNodeDireita(node10);
 		return inicio; 
 	    
 
