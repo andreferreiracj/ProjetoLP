@@ -37,4 +37,30 @@ public class ArvoreDoJogo {
 	}
 	
 	//comportamentos
+	public void ordenar(){ //começar na esquerda da arvore binaria
+	      if (esquerda != null)
+	         esquerda.ordenar();
+	      System.out.println(nodeAtual);
+	      if (direita != null)
+	         direita.ordenar();
+	   }  
+	public boolean estaVazio() {
+		return esquerda == null && direita==null;
+	}
+	
+	public void preorder() {//começar na root da arvore binaria.
+		System.out.println(nodeAtual);
+		if (esquerda != null)
+	         esquerda.ordenar();
+	      if (direita != null)
+	         direita.ordenar();
+	}
+	
+	public void postordenar() {//Acabar na root.
+		if (esquerda != null)
+	         esquerda.ordenar();
+	      if (direita != null)
+	         direita.ordenar();
+	      	System.out.println(nodeAtual); 
+	}
 }
