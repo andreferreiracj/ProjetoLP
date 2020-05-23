@@ -24,8 +24,6 @@ public class Main {
 		 ArvoreDoJogo node8= null;
 		 ArvoreDoJogo node9= null;
 		 ArvoreDoJogo node10= null;
-		 ArvoreDoJogo node11= null;
-		 ArvoreDoJogo node12= null;
 		 
 		 
 		 //Perguntas a fazer
