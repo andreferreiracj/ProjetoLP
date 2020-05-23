@@ -73,9 +73,11 @@ public class Main {
 	      	
 	      	//Começar para a direita do inicio.
 	      		node4 = new ArvoreDoJogo(new Mensagem(pergunta5), null, null); 
-	      		inicio.setNodeDireita(node4); //iniciamos um novo caminho para a direita.
-	      		node4.setNodeEsquerda(node5); //na node4 colocamos um novo caminho para a esquerda
 	      		node5 = new ArvoreDoJogo(new Mensagem(pergunta6),new ArvoreDoJogo(new Mensagem(ANIMAL4),null,null), null);
+	      		node4.setNodeEsquerda(node5); //na node4 colocamos um novo caminho para a esquerda
+	      		inicio.setNodeDireita(node4); //iniciamos um novo caminho para a direita.
+	      		
+	      		
 	      		node6 = new ArvoreDoJogo(new Mensagem(pergunta7),new ArvoreDoJogo(new Mensagem(ANIMAL5),null,null),null);
 	      		node5.setNodeDireita(node6);
 	      		node7 = new ArvoreDoJogo(new Mensagem(pergunta11),null,null);
