@@ -14,16 +14,16 @@ public class Main {
 	 public static ArvoreDoJogo inicio(){  //incompleto
 		 //criação de nodes na arvore binaria
 	     ArvoreDoJogo inicio = null;
-		 ArvoreDoJogo node1;
-		 ArvoreDoJogo node2;
-		 ArvoreDoJogo node3;
-		 ArvoreDoJogo node4;
-		 ArvoreDoJogo node5;
-		 ArvoreDoJogo node6;
-		 ArvoreDoJogo node7;
+		 ArvoreDoJogo node1= null;
+		 ArvoreDoJogo node2 = null;
+		 ArvoreDoJogo node3= null;
+		 ArvoreDoJogo node4= null;
+		 ArvoreDoJogo node5= null;
+		 ArvoreDoJogo node6= null;
+		 ArvoreDoJogo node7= null;
 		 
 		 //Perguntas a fazer
-	     final String pergunta1 = "O seu habitat é a agua?"; //Golfinho ou baleia ou polvo.
+		 final String pergunta1 = "O seu habitat é a agua?"; //Golfinho ou baleia ou polvo.
 	     final String pergunta2 = " O animal necessita de vir á superficie às vezes?"; // é o golfinho
 	     final String pergunta3 = " O animal já ingoliu o pinócio?"; // É a baleia.
 	     final String pergunta4 = "Tem tentaculos?"; // É o Polvo
@@ -54,9 +54,20 @@ public class Main {
 	      final String ANIMAL9 = "golfinho"; //
 	      final String ANIMAL10 = "baleia"; //
 	      
-	       //Construção da arvore binaria com as perguntas e respostas
-	      inicio = new ArvoreDoJogo(new Mensagem(pergunta1), null, null);
-	      
+	      //Construção da arvore binaria com as perguntas e respostas
+	      	inicio = new ArvoreDoJogo(new Mensagem(pergunta1), null, null); //O inicio tem a pergunta 1
+	      //Associar a pergunta1 às suas hipoteses da esquerda e direita.
+	      	node1 = new ArvoreDoJogo(new Mensagem(pergunta4), node2, node3); 
+	      	inicio.setNodeEsquerda(node1); //esta node1 está à esquerda do inicio e contem a pergunta4, node2 e node3
+	      	
+	      	//node3 corresponde a outro nó com o seguimento da pergunta para a direita.
+	        node3 = new ArvoreDoJogo(new Mensagem(pergunta2),new ArvoreDoJogo(new Mensagem(ANIMAL9),null,null),
+	        		new ArvoreDoJogo(new Mensagem(pergunta3),new ArvoreDoJogo(new Mensagem(ANIMAL10),null,null),null));
+	        //resposta polvo
+	      	node2 = new ArvoreDoJogo(new Mensagem(ANIMAL7),null,null);  //TODO O PERCURSO PARA A ESQUERDA DO INICIO.
+	      	
+	      	
+	      	
 		return inicio; 
 	    
 
