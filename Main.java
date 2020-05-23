@@ -54,7 +54,8 @@ public class Main {
 	      final String ANIMAL9 = "golfinho"; //
 	      final String ANIMAL10 = "baleia"; //
 	      
-	      
+	       //Construção da arvore binaria com as perguntas e respostas
+	      inicio = new ArvoreDoJogo(new Mensagem(pergunta1), null, null);
 	      
 		return inicio; 
 	    
