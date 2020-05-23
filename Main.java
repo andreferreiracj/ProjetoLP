@@ -59,7 +59,7 @@ public class Main {
 		return inicio; 
 	    
 
-	      // Create the root node with the question “Are you a mammal?”
+	      
 	      
 
 	      
