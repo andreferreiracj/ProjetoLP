@@ -24,17 +24,18 @@ public class ArvoreDoJogo {
 		return this.esquerda;
 	}
 	
-	public void setNodeEsquerda(String m){
-		this.esquerda.setNodeAtual(m);
+	public void setNodeEsquerda(ArvoreDoJogo n){
+		this.esquerda = n;
 	}
 	
 	public ArvoreDoJogo getDireita(){
 		return this.direita;
 	}
 	
-	public void setNodeDireita(String m){
-		this.direita.setNodeAtual(m);
+	public void setNodeDireita(ArvoreDoJogo n){
+		this.direita = n;
 	}
+	
 	
 	//comportamentos
 	public void ordenar(){ //começar na esquerda da arvore binaria
