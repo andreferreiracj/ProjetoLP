@@ -64,4 +64,29 @@ public class ArvoreDoJogo {
 	         direita.ordenar();
 	      	System.out.println(nodeAtual); 
 	}
+	
+	public void consultar(int profundidade) {
+	      int i;
+	      for (i = 1; i <= profundidade; i++)
+	         System.out.print("    ");
+	      System.out.println(this.nodeAtual);
+
+	      if (this.esquerda != null)
+	    	  this.esquerda.consultar(profundidade+1);
+	      else if (this.direita != null)
+	      {
+	         for (i = 1; i <= profundidade+1; i++)
+	            System.out.print("    ");
+	         System.out.println("--");
+	      }
+
+	      if (this.direita != null)
+	         this.direita.consultar(profundidade+1);
+	      else if (this.esquerda != null)
+	      {
+	         for (i = 1; i <= profundidade+1; i++)
+	            System.out.print("    ");
+	         System.out.println("--");
+	      }
+	   }
 }
