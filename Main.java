@@ -17,7 +17,9 @@ public class Main {
 		 ArvoreDoJogo inicio;
 		 //Apresentação
 		    System.out.println("Olá amigo, vamos jogar um jogo interessante.");
-		    System.out.println("Pensa em um animal ao calhas e garanto te que advinho em qual estás a pensar");
+            	    System.out.println("Pensa em um animal da minha lista: ");
+                    System.out.println("== ZEBRA, GALINHA, CAO, ARMINHO, RATO, POLVO, CAVALO, GOLFINHO, BALEIA ==" );
+                    System.out.println("Garanto-te que adivinho em qual estás a pensar");
 		    inicio = inicio();
 		    
 		    //Lança uma Exception caso o utilizador escolha uma resposta em que o nó não tenha filhos
