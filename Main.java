@@ -120,21 +120,21 @@ public class Main {
 	      		node6 = new ArvoreDoJogo(new Mensagem(pergunta7),new ArvoreDoJogo(new Mensagem(ANIMAL5),null,null),null);
 	      		node5.setNodeDireita(node6);
 	      		node7 = new ArvoreDoJogo(new Mensagem(pergunta11),null,null);
+	      		
 	      		node6.setNodeDireita(node7);//caminho para a esquerda da node9
 	      		node8 = new ArvoreDoJogo(new Mensagem(pergunta12),new ArvoreDoJogo(new Mensagem(ANIMAL1),null,null),null);
 	      		node9= new ArvoreDoJogo(new Mensagem(pergunta13),new ArvoreDoJogo(new Mensagem(ANIMAL8),null,null),null);
 	      		node8.setNodeDireita(node9); //caminho para a direita da node9
+	      		node7.setNodeEsquerda(node8);
 	      		
 	      		node10 = new ArvoreDoJogo(new Mensagem(pergunta8),null,null);
 	      		node4.setNodeDireita(node10); //vamos trabalhar agora no caminho para a direita da node4
 	      		node11 = new ArvoreDoJogo(new Mensagem(pergunta9),new ArvoreDoJogo(new Mensagem(ANIMAL2),null,null),null);
 	      		node10.setNodeEsquerda(node11);
 	      		node12 = new ArvoreDoJogo(new Mensagem(pergunta10),new ArvoreDoJogo(new Mensagem(ANIMAL6),null,null),null);
-	      		node9.setNodeDireita(node12); 
+	      		node11.setNodeDireita(node12); 
 	      		//TODO O PERCURSO PARA A DIREITA DO INICIO
-	      		
-	      		
-		return inicio; 
+           return inicio;
 	    
 
 	      
