@@ -1,102 +1,105 @@
-package projeto;
 
+ 
 import java.util.Scanner;
-///////////
-///////////
-///////////
-///////////CONTADOR
-///////////
-///////////
-///////////
-///////////
 
 public class Main {
-	private static Scanner teclado = new Scanner(System.in);
-	
-	public static void main(String[] args) {
-		 ArvoreDoJogo inicio;
-		 //Apresentação
-		    System.out.println("Olá amigo, vamos jogar um jogo interessante.");
-            	    System.out.println("Pensa em um animal da minha lista: ");
-                    System.out.println("== ZEBRA, GALINHA, CAO, ARMINHO, RATO, POLVO, CAVALO, GOLFINHO, BALEIA ==" );
-                    System.out.println("Garanto-te que adivinho em qual estás a pensar");
-		    inicio = inicio();
-		    
-		    //Lança uma Exception caso o utilizador escolha uma resposta em que o nó não tenha filhos
-		    try {
-		    do cicloDeJogo(inicio); while (darResposta(".  bora la outra vêz?"));
-		    } catch (Exception e) {
-		    	System.out.println("Hm..de momento não estou a conseguir adivinhar o teu animal.");
-		   }
-		 }
-	
-	public static void cicloDeJogo(ArvoreDoJogo jogo){
-		//enquanto houverem nodes para percorrer
+    private static Scanner teclado = new Scanner(System.in);
+    static int contadorJogadas; // Contador de jogadas feitas para encontrar o animal
+    
+    public static void main(String[] args) {
+         ArvoreDoJogo inicio;
+         //Apresentação
+            System.out.println("Olá amigo, vamos jogar um jogo interessante.");
+            System.out.println("Pensa em um animal da minha lista ");
+            System.out.println("== ZEBRA, GALINHA, CAO, ARMINHO, RATO, POLVO, CAVALO, GOLFINHO, BALEIA ==" );
+            System.out.println(" e garanto-te que adivinho em qual estás a pensar");
+            inicio = inicio();
+            
+            //Lança uma Exception caso o utilizador escolha uma resposta em que o nó não tenha filhos
+            try {
+            do cicloDeJogo(inicio); while (darResposta(". Numero de jogadas: " + contadorJogadas
+            		 +   ". Bora lá outra vêz?"));
+            
+            } catch (Exception e) {
+                System.out.println("Hm..de momento não estou a conseguir adivinhar o teu animal." +
+                		" Numero de jogadas: " + contadorJogadas);
+                
+           }
+            
+            
+         }
+   
+    public static void cicloDeJogo(ArvoreDoJogo jogo){
+    	contadorJogadas = 0;
         while (!jogo.estaVazio()){
-           if (darResposta(jogo.getNodeAtual()))
+           if (darResposta(jogo.getNodeAtual())) {
              jogo = jogo.getEsquerda();
-           else
+           		contadorJogadas ++;
+        } else {
              jogo = jogo.getDireita();
+           		contadorJogadas ++;
+           }
+           
         }
-        System.out.print("É ESTE ANIMAL? Resposta: " + jogo.getNodeAtual().toString());
+        System.out.print("O ANIMAL É: " + jogo.getNodeAtual().toString());
      }
-
-	//funcao para o utilizador responder sim ou não à pergunta
+ 
      public static boolean darResposta(String i){
         String resposta;
-        System.out.println(i + "[S ou N]: ");
+        System.out.println(i + "[ S ou N ] ");
         resposta = teclado.nextLine( ).toUpperCase( );
         while (!resposta.startsWith("S") && !resposta.startsWith("N")){
       System.out.println("Resposta invalida");
           resposta = teclado.nextLine( ).toUpperCase( );
         }return resposta.startsWith("S");
-
+ 
      }
-	
-	 public static ArvoreDoJogo inicio(){  //incompleto
-		 //criação de nodes na arvore binaria
-	     ArvoreDoJogo inicio = null;
-		 ArvoreDoJogo node1= null;
-		 ArvoreDoJogo node2 = null;
-		 ArvoreDoJogo node3= null;
-		 ArvoreDoJogo node4= null;
-		 ArvoreDoJogo node5= null;
-		 ArvoreDoJogo node6= null;
-		 ArvoreDoJogo node7= null;
-		 ArvoreDoJogo node8= null;
-		 ArvoreDoJogo node9= null;
-		 ArvoreDoJogo node10= null;
-		 ArvoreDoJogo node11= null;
-		 ArvoreDoJogo node12= null;
-		 
-		 //Perguntas a fazer
-		 final String pergunta1 = "O animal em que está a pensar vive dentro de água?"; //Golfinho, baleia ou polvo.
-	     final String pergunta2 = " O animal necessita de vir à superficie às vezes?"; // Resposta: Golfinho.
-	     final String pergunta3 = " O animal é maior e mais pesado que um golfinho?"; // Resposta: baleia.
-	     final String pergunta4 = "Tem tentaculos?"; // Resposta: Polvo
-	     final String pergunta5 = "O animal tem quatro patas?"; //cao ou arminho
-	     final String pergunta6 = "O animal é canino?"; //Resposta: cao
-	     final String pergunta7 = "Hum...É um animal peculiar, branquinho e fofinho?"; //Resposta: Arminho.
-	     final String pergunta8 = "O animal é pequeno?"; //Ou é a galinha, a rato.
-	     final String pergunta9 = "O animal põe ovos?"; //Resposta: galinha
-	     final String pergunta10 = "O animal adora queijo?"; //Resposta: rato
-	     final String pergunta11 = "O animal corre bastante?"; //Ou é a zebra ou o cavalo
-	     final String pergunta12= "O animal tem riscas?"; //Resposta: zebra
-	     final String pergunta13 = "Serve para puxar carroças?"; // Resposta: cavalo
-	     
-	      
-	     //Animais a adivinhar
-	      final String ANIMAL1 = "Zebra"; 
-	      final String ANIMAL2 = "Galinha";
-	      final String ANIMAL4 = "Cao";
-	      final String ANIMAL5 = "Arminho";
-	      final String ANIMAL6 = "Rato"; 
-	      final String ANIMAL7 = "Polvo"; //
-	      final String ANIMAL8 = "Cavalo"; 
-	      final String ANIMAL9 = "Golfinho"; //
-	      final String ANIMAL10 = "Baleia"; //
-	      
-	     //Construção da arvore binaria com as perguntas e respostas
+   
+     public static ArvoreDoJogo inicio(){  //incompleto
+         //criação de nodes na arvore binaria
+    	 
+         ArvoreDoJogo inicio = null;
+         ArvoreDoJogo node1= null;
+         ArvoreDoJogo node2 = null;
+         ArvoreDoJogo node3= null;
+         ArvoreDoJogo node4= null;
+         ArvoreDoJogo node5= null;
+         ArvoreDoJogo node6= null;
+         ArvoreDoJogo node7= null;
+         ArvoreDoJogo node8= null;
+         ArvoreDoJogo node9= null;
+         ArvoreDoJogo node10= null;
+         ArvoreDoJogo node11= null;
+         ArvoreDoJogo node12= null;
+         
+         //Perguntas a fazer
+         final String pergunta1 = "O animal em que está a pensar vive dentro de água?"; //Golfinho, baleia ou polvo.
+         final String pergunta2 = " O animal necessita de vir à superficie às vezes?"; // Resposta: Golfinho.
+         final String pergunta3 = " O animal é maior e mais pesado que um golfinho?"; // Resposta: baleia.
+         final String pergunta4 = "Tem tentaculos?"; // Resposta: Polvo
+         final String pergunta5 = "O animal tem quatro patas?"; //cao ou arminho
+         final String pergunta6 = "O animal é canino?"; //Resposta: cao
+         final String pergunta7 = "Hum...É um animal peculiar, branquinho e fofinho?"; //Resposta: Arminho.
+         final String pergunta8 = "O animal é pequeno?"; //Ou é a galinha, a rato.
+         final String pergunta9 = "O animal põe ovos?"; //Resposta: galinha
+         final String pergunta10 = "O animal adora queijo?"; //Resposta: rato
+         final String pergunta11 = "O animal corre bastante?"; //Ou é a zebra ou o cavalo
+         final String pergunta12= "O animal tem riscas?"; //Resposta: zebra
+         final String pergunta13 = "Serve para puxar carroças?"; // Resposta: cavalo
+         
+          
+         //Animais a adivinhar
+          final String ANIMAL1 = "Zebra";
+          final String ANIMAL2 = "Galinha";
+          final String ANIMAL4 = "Cao";
+          final String ANIMAL5 = "Arminho";
+          final String ANIMAL6 = "Rato";
+          final String ANIMAL7 = "Polvo"; //
+          final String ANIMAL8 = "Cavalo";
+          final String ANIMAL9 = "Golfinho"; //
+          final String ANIMAL10 = "Baleia"; //
+         
+        //Construção da arvore binaria com as perguntas e respostas
 	      	inicio = new ArvoreDoJogo(new Mensagem(pergunta1), null, null); //O inicio tem a pergunta 1
 	      //node3 corresponde a outro nó com o seguimento da pergunta para a direita.
 	        node3 = new ArvoreDoJogo(new Mensagem(pergunta2),new ArvoreDoJogo(new Mensagem(ANIMAL9),null,null),
@@ -107,7 +110,7 @@ public class Main {
 	      	node1 = new ArvoreDoJogo(new Mensagem(pergunta4), node2, node3); 
 	      	inicio.setNodeEsquerda(node1); //esta node1 está à esquerda do inicio e contem a pergunta4, node2 e node3
 	      	
-	      	 //TODO O PERCURSO PARA A ESQUERDA DO INICIO.
+	      	//TODO O PERCURSO PARA A ESQUERDA DO INICIO.
 	      	
 	      	
 	      	//Começar para a direita do inicio.
@@ -135,11 +138,7 @@ public class Main {
 	      		node11.setNodeDireita(node12); 
 	      		//TODO O PERCURSO PARA A DIREITA DO INICIO
            return inicio;
-	    
-
-	      
-	      
-
-	      
-	   }
+       }
+     
+    
 }
