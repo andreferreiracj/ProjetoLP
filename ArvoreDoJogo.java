@@ -1,5 +1,5 @@
 
-public class ArvoreDoJogo {
+public class ArvoreDoJogo implements Metodos {
 //atributos
 	private Mensagem nodeAtual; //node com a mensagem principal
 	private ArvoreDoJogo esquerda; //node com a mensagem a percorrer para a esquerda
@@ -38,6 +38,9 @@ public class ArvoreDoJogo {
 	
 	
 	//comportamentos
+	
+	
+	@Override
 	public void ordenar(){ //começar na esquerda da arvore binaria
 	      if (esquerda != null)
 	         esquerda.ordenar();
@@ -45,10 +48,13 @@ public class ArvoreDoJogo {
 	      if (direita != null)
 	         direita.ordenar();
 	   }  
+	
+	@Override
 	public boolean estaVazio() {
 		return esquerda == null && direita==null;
 	}
 	
+	@Override
 	public void preorder() {//começar na root da arvore binaria.
 		System.out.println(nodeAtual);
 		if (esquerda != null)
@@ -57,6 +63,7 @@ public class ArvoreDoJogo {
 	         direita.ordenar();
 	}
 	
+	@Override
 	public void postordenar() {//Acabar na root.
 		if (esquerda != null)
 	         esquerda.ordenar();
@@ -64,7 +71,9 @@ public class ArvoreDoJogo {
 	         direita.ordenar();
 	      	System.out.println(nodeAtual); 
 	}
+
 	
+	@Override
 	public void consultar(int profundidade) {
 	      int i;
 	      for (i = 1; i <= profundidade; i++)
@@ -89,4 +98,5 @@ public class ArvoreDoJogo {
 	         System.out.println("--");
 	      }
 	   }
+	
 }
